@@ -1,0 +1,11 @@
+profiles
+  wallet_address - text - pk
+  ens_domain - text
+  pfp_address - text
+  pfp_token_id - text
+  name - text
+  introduce - text
+  social_links - text[]
+  is_on_chain_profile - boolean
+	created_at - timestampz - now()
+	updated_at - timestampz - nullable
