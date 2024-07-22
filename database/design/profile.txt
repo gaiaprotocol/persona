@@ -1,10 +1,10 @@
 profiles
   wallet_address - text - pk
-  ens_domain - text
+  ens_name - text
   pfp_address - text
   pfp_token_id - text
   name - text
-  introduce - text
+  bio - text
   social_links - text[]
   is_on_chain_profile - boolean
 	created_at - timestampz - now()

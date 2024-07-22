@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS "public"."profiles" (
     "wallet_address" "text" NOT NULL,
-    "ens_domain" "text",
+    "ens_name" "text",
     "pfp_address" "text",
     "pfp_token_id" "text",
     "name" "text",
-    "introduce" "text",
+    "bio" "text",
     "social_links" text[],
     "is_on_chain_profile" boolean DEFAULT false NOT NULL,
     "created_at" timestamp with time zone DEFAULT "now"() NOT NULL,
