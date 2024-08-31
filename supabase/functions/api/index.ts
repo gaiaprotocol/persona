@@ -1,9 +1,6 @@
-import { serveWithOptions } from "https://raw.githubusercontent.com/yjgaia/deno-module/main/api.ts";
+import { startServer } from "https://raw.githubusercontent.com/yjgaia/deno-module/main/api.ts";
+import { serveWalletApi } from "https://raw.githubusercontent.com/yjgaia/wallet-module/main/supabase/functions-module/serve-wallet-api.ts";
 
-serveWithOptions(async (req) => {
-  const url = new URL(req.url);
-  const uri = url.pathname.replace("/api/", "");
-
-  if (uri === "save-persona") {
-  }
-});
+startServer(
+  serveWalletApi,
+);
