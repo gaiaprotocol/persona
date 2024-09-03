@@ -148,7 +148,6 @@ body {
 dialog.modal {
   border: none;
   outline: none;
-  animation: fadeIn 1s ease normal;
 }
 dialog.modal.fade-out {
   animation: fadeOut 1s ease normal;
