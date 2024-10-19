@@ -1,18 +1,22 @@
-import { Router } from "@common-module/app";
+import { Router, SPAInitializer } from "@common-module/app";
+import { AppCompConfig } from "@common-module/app-components";
+import { MaterialLoadingSpinner } from "@common-module/material-loading-spinner";
 import { SupabaseConnector } from "@common-module/supabase";
-import {
-  UniversalWalletConnector,
-  WalletTokenManager,
-} from "@common-module/wallet";
+import { UniversalWalletConnector } from "@common-module/wallet";
+import { WalletLoginManager } from "@common-module/wallet-login";
 import App from "./App.js";
+import AppConfig, { IAppConfig } from "./AppConfig.js";
 
-export default async function init(config: { sepolia?: boolean }) {
-  SupabaseConnector.init({
-    supabaseUrl: "https://vmupqxwvlmseafwjkzck.supabase.co",
-    supabaseKey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtdXBxeHd2bG1zZWFmd2premNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIwNjY0NzIsImV4cCI6MjAzNzY0MjQ3Mn0.iU_55iFWJ9XLeONxMq3mrdQoCFjyAvbdPe5Lbtcl3E4",
-    tokenManager: WalletTokenManager,
-  });
+export default async function init(config: IAppConfig) {
+  AppConfig.init(config);
+  AppCompConfig.LoadingSpinner = MaterialLoadingSpinner;
+  SPAInitializer.init();
+
+  SupabaseConnector.init(
+    AppConfig.supabaseUrl,
+    AppConfig.supabaseKey,
+    WalletLoginManager,
+  );
 
   UniversalWalletConnector.init({
     name: "Persona",
@@ -21,14 +25,15 @@ export default async function init(config: { sepolia?: boolean }) {
       "Create your Persona with your own story, and build a community of supporters who believe in you.",
     walletConnectProjectId: "7538ca3cec20504b06a3338d0e53b028",
     chains: {
-      base: {
-        id: config.sepolia ? 84532 : 8453,
+      "base-sepolia": {
+        id: 84532,
+        name: "Base Sepolia Testnet",
         symbol: "ETH",
-        rpc: `https://${config.sepolia ? "sepolia" : "mainnet"}.base.org`,
-        explorerUrl: `https://${config.sepolia ? "sepolia" : ""}.basescan.org`,
+        rpc: "https://sepolia.base.org",
+        explorerUrl: "https://sepolia.basescan.org",
       },
     },
   });
 
-  Router.route("", App);
+  Router.add("/", App);
 }

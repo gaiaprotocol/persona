@@ -1,6 +1,6 @@
 import { DomNode, el } from "@common-module/app";
 import { Button } from "@common-module/app-components";
-import { WalletLoginManager } from "@common-module/wallet";
+import { WalletLoginPopup } from "@common-module/wallet-login";
 
 export default class Intro extends DomNode {
   constructor() {
@@ -13,7 +13,7 @@ export default class Intro extends DomNode {
       ),
       new Button({
         title: "Get Started",
-        onClick: () => WalletLoginManager.login(),
+        onClick: () => new WalletLoginPopup("Login with Crypto Wallet"),
       }),
     );
   }

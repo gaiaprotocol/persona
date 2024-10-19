@@ -1,4 +1,9 @@
 import init from "./init.js";
 
-init({
+await init({
+  isDevMode: false,
+  isForSepolia: false,
+
+  supabaseUrl: "",
+  supabaseKey: "",
 });

@@ -1,5 +1,5 @@
 import { BodyNode, el, View } from "@common-module/app";
-import { WalletLoginManager } from "@common-module/wallet";
+import { WalletLoginManager } from "@common-module/wallet-login";
 import Home from "./components/Home.js";
 import Intro from "./components/Intro.js";
 
@@ -14,7 +14,7 @@ export default class App extends View {
     this.container?.remove();
     this.container = el(
       "#app",
-      WalletLoginManager.loggedIn ? new Home() : new Intro(),
+      WalletLoginManager.isLoggedIn ? new Home() : new Intro(),
     ).appendTo(BodyNode);
   }
 }

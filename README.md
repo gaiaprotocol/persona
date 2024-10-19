@@ -8,5 +8,5 @@ supabase functions deploy api
 
 ## Run dev entrypoint
 ```
-deno run --allow-net --allow-read public/server/entrypoint-dev.ts
+deno run --allow-net --allow-read server/entrypoint-dev.ts
 ```
