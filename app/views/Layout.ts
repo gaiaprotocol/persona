@@ -21,12 +21,12 @@ export default class Layout extends View {
       el(
         "header",
         new PersonaLogo(),
-        new WalletAvatar("0xbb22b6f3ce72a5beb3cc400d9b6af808a18e0d4c", {
-          size: 40,
-        }),
       ),
       this.contentContainer = el("main"),
       new Navbar(),
+      new WalletAvatar("0xbb22b6f3ce72a5beb3cc400d9b6af808a18e0d4c", {
+        size: 32,
+      }),
     ).appendTo(BodyNode);
   }
 }

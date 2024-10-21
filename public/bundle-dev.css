@@ -673,6 +673,16 @@ li.chat-message-list-item > main {
 .persona-logo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+}
+.layout > header {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+.layout > header > .persona-logo {
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
