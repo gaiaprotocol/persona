@@ -1,3 +1,5 @@
+import { GaiaProtocolConfig } from "gaiaprotocol";
+
 export interface IAppConfig {
   isDevMode: boolean;
   isTestnet: boolean;
@@ -9,6 +11,8 @@ class AppConfig implements IAppConfig {
 
   public init(config: IAppConfig) {
     Object.assign(this, config);
+
+    GaiaProtocolConfig.init(config.isDevMode, config.isTestnet);
   }
 }
 

@@ -1,13 +1,12 @@
-import { BodyNode, Router, SPAInitializer } from "@common-module/app";
+import { Router, SPAInitializer } from "@common-module/app";
 import { AppCompConfig } from "@common-module/app-components";
 import { MaterialLoadingSpinner } from "@common-module/material-loading-spinner";
 import { UniversalWalletConnector } from "@common-module/wallet";
 import AppConfig, { IAppConfig } from "./AppConfig.js";
-import PersonaLogo from "./components/PersonaLogo.js";
-import Layout from "./views/Layout.js";
-import HomeView from "./views/HomeView.js";
-import FeedView from "./views/FeedView.js";
 import ChatWithHoldersView from "./views/ChatWithHoldersView.js";
+import FeedView from "./views/FeedView.js";
+import HomeView from "./views/HomeView.js";
+import Layout from "./views/Layout.js";
 import NotificationsView from "./views/NotificationsView.js";
 
 export default async function init(config: IAppConfig) {
