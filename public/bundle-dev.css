@@ -609,6 +609,11 @@ li.chat-message-list-item > main {
 .chat-message-edit-form > form > .actions > button > .icon-container > .icon {
   font-size: 20px;
 }
+/* Wallet Components */
+.wallet-avatar {
+  display: flex;
+  align-items: center;
+}
 .wallet-connection-content {
   display: flex;
   flex-direction: column;
@@ -675,6 +680,36 @@ li.chat-message-list-item > main {
     padding: 24px !important;
   }
 }
+/* Gaia Components */
+.user-avatar-button > button.circle {
+  min-height: auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transition: none;
+}
+@media (pointer: fine) {
+  .user-avatar-button > button.circle:hover {
+    background-color: var(--circle-button-bg-color);
+  }
+}
+.user-avatar-button > button.circle:active {
+  background-color: var(--circle-button-bg-color);
+}
+.user-avatar-menu > header {
+  margin-bottom: 8px;
+}
+.user-avatar-menu > header > .user-info {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.user-avatar-menu > header > .user-info:hover {
+  opacity: 0.8;
+}
 .persona-logo {
   display: flex;
   align-items: center;
@@ -683,6 +718,7 @@ li.chat-message-list-item > main {
 .layout > header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 16px 24px;
 }
 .layout > header > .persona-logo {

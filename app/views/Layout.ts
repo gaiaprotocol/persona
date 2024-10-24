@@ -2,6 +2,7 @@ import { BodyNode, DomNode, el, View } from "@common-module/app";
 import Navbar from "../components/Navbar.js";
 import PersonaLogo from "../components/PersonaLogo.js";
 import { WalletAvatar } from "@common-module/wallet";
+import { UserAvatarButton } from "gaiaprotocol";
 
 export default class Layout extends View {
   private static current: Layout;
@@ -21,6 +22,7 @@ export default class Layout extends View {
       el(
         "header",
         new PersonaLogo(),
+        el(".buttons", new UserAvatarButton()),
       ),
       this.contentContainer = el("main"),
       new Navbar(),
