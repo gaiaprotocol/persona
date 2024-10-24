@@ -1,8 +1,8 @@
 import { BodyNode, DomNode, el, View } from "@common-module/app";
+import { LoggedInUserAvatarButton } from "@common-module/social-components";
+import { WalletLoginManager } from "@common-module/wallet-login";
 import Navbar from "../components/Navbar.js";
 import PersonaLogo from "../components/PersonaLogo.js";
-import { WalletAvatar } from "@common-module/wallet";
-import { UserAvatarButton } from "gaiaprotocol";
 
 export default class Layout extends View {
   private static current: Layout;
@@ -22,13 +22,10 @@ export default class Layout extends View {
       el(
         "header",
         new PersonaLogo(),
-        el(".buttons", new UserAvatarButton()),
+        el(".buttons", new LoggedInUserAvatarButton(WalletLoginManager)),
       ),
       this.contentContainer = el("main"),
       new Navbar(),
-      new WalletAvatar("0xbb22b6f3ce72a5beb3cc400d9b6af808a18e0d4c", {
-        size: 32,
-      }),
     ).appendTo(BodyNode);
   }
 }

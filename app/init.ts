@@ -8,6 +8,7 @@ import FeedView from "./views/FeedView.js";
 import HomeView from "./views/HomeView.js";
 import Layout from "./views/Layout.js";
 import NotificationsView from "./views/NotificationsView.js";
+import PersonaView from "./views/PersonaView.js";
 
 export default async function init(config: IAppConfig) {
   AppConfig.init(config);
@@ -36,5 +37,9 @@ export default async function init(config: IAppConfig) {
     .add("/", HomeView)
     .add("/notifications", NotificationsView)
     .add("/feed", FeedView)
-    .add("/chat", ChatWithHoldersView);
+    .add("/chat", ChatWithHoldersView)
+    .add([
+      "/0x:walletAddress([a-fA-F0-9]{4,40})",
+      "/:name([^:.]+).:tld(eth|base.eth|gaia)",
+    ], PersonaView);
 }
